@@ -12,8 +12,16 @@
     --color-primario-oscuro: #1b3d7d;
     --color-borde: #dde1e8;
     --color-tarjeta: #ffffff;
+    --color-acento: #eaf1fb;
 
     --fuente-principal: "Segoe UI", Verdana, Arial, sans-serif;
+
+    --espaciado-sm: 0.5rem;
+    --espaciado-md: 1rem;
+    --espaciado-lg: 1.5rem;
+
+    --radio-borde: 8px;
+    --transicion: 0.2s ease;
 }
 
 /* --- Reset básico --- */
@@ -77,12 +85,17 @@ nav a {
     font-weight: 600;
     padding: 0.4rem 0.9rem;
     border-radius: 6px;
-    transition: background-color 0.2s ease;
+    transition: background-color var(--transicion);
 }
 
 nav a:hover,
 nav a:focus {
     background-color: rgba(255, 255, 255, 0.15);
+}
+
+/* Pseudo-clase :first-child: el primer enlace del menú se ve un poco distinto */
+nav li:first-child a {
+    font-weight: 800;
 }
 
 /* --- Contenido principal --- */
@@ -96,9 +109,14 @@ section,
 article {
     background-color: var(--color-tarjeta);
     border: 1px solid var(--color-borde);
-    border-radius: 8px;
-    padding: 1.5rem;
-    margin-bottom: 1.5rem;
+    border-radius: var(--radio-borde);
+    padding: var(--espaciado-lg);
+    margin-bottom: var(--espaciado-lg);
+}
+
+/* Pseudo-clase :hover: los artículos de proyectos reaccionan al pasar el mouse */
+article:hover {
+    border-color: var(--color-primario);
 }
 
 h2 {
@@ -212,6 +230,67 @@ img {
     height: auto;
 }
 
+/* ===========================================
+   Tarjetas de Hobbies: Grid + Flexbox
+   =========================================== */
+
+/* Grid: acomoda las tarjetas en una cuadrícula responsiva.
+   auto-fit + minmax hace que el número de columnas se ajuste solo
+   según el ancho de la pantalla, sin usar media queries extra. */
+.tarjetas-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: var(--espaciado-lg);
+    margin-top: var(--espaciado-md);
+}
+
+/* Flexbox: dentro de cada tarjeta, alinea el ícono con el texto */
+.tarjeta {
+    display: flex;
+    align-items: center;
+    gap: var(--espaciado-md);
+    background-color: var(--color-acento);
+    border: 1px solid var(--color-borde);
+    border-radius: var(--radio-borde);
+    padding: var(--espaciado-md);
+    transition: transform var(--transicion), box-shadow var(--transicion);
+}
+
+/* Pseudo-clase :hover en las tarjetas */
+.tarjeta:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+}
+
+/* Pseudo-clase :nth-child: alterna un pequeño detalle en tarjetas pares */
+.tarjeta:nth-child(even) {
+    border-color: var(--color-primario);
+}
+
+.tarjeta-icono {
+    flex-shrink: 0;
+    width: 3rem;
+    height: 3rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.6rem;
+    background-color: var(--color-tarjeta);
+    border-radius: 50%;
+}
+
+.tarjeta-texto h3 {
+    margin: 0 0 0.3rem;
+    color: var(--color-primario-oscuro);
+    font-size: 1.05rem;
+}
+
+.tarjeta-texto p {
+    margin: 0;
+    font-size: 0.9rem;
+    color: var(--color-texto-suave);
+}
+
 /* --- Responsivo --- */
 @media (max-width: 600px) {
     header h1 {
@@ -225,5 +304,9 @@ img {
 
     main {
         padding: 1.2rem 1rem 2rem;
+    }
+
+    .tarjetas-grid {
+        grid-template-columns: 1fr;
     }
 }
