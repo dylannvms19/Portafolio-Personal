@@ -1,0 +1,229 @@
+/* ===========================================
+   Portafolio de Dylan V. Moragrega Soto
+   Hoja de estilos general
+   =========================================== */
+
+/* --- Variables de color y fuentes --- */
+:root {
+    --color-fondo: #f7f8fa;
+    --color-texto: #23272f;
+    --color-texto-suave: #5a6270;
+    --color-primario: #2454a0;
+    --color-primario-oscuro: #1b3d7d;
+    --color-borde: #dde1e8;
+    --color-tarjeta: #ffffff;
+
+    --fuente-principal: "Segoe UI", Verdana, Arial, sans-serif;
+}
+
+/* --- Reset básico --- */
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: var(--fuente-principal);
+    background-color: var(--color-fondo);
+    color: var(--color-texto);
+    line-height: 1.6;
+}
+
+/* --- Encabezado --- */
+header {
+    background-color: var(--color-primario);
+    color: #ffffff;
+    padding: 2rem 1.5rem 1.5rem;
+    text-align: center;
+}
+
+header h1 {
+    margin: 0 0 0.3rem;
+    font-size: 2rem;
+}
+
+header p {
+    margin: 0 0 0.8rem;
+    font-size: 1.05rem;
+    color: #dbe6f7;
+}
+
+header address {
+    font-style: normal;
+    font-size: 0.9rem;
+    color: #dbe6f7;
+    margin-bottom: 1rem;
+}
+
+header address a {
+    color: #ffffff;
+    text-decoration: underline;
+}
+
+/* --- Navegación --- */
+nav ul {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+    padding: 0;
+    margin: 0;
+}
+
+nav a {
+    color: #ffffff;
+    text-decoration: none;
+    font-weight: 600;
+    padding: 0.4rem 0.9rem;
+    border-radius: 6px;
+    transition: background-color 0.2s ease;
+}
+
+nav a:hover,
+nav a:focus {
+    background-color: rgba(255, 255, 255, 0.15);
+}
+
+/* --- Contenido principal --- */
+main {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 2rem 1.5rem 3rem;
+}
+
+section,
+article {
+    background-color: var(--color-tarjeta);
+    border: 1px solid var(--color-borde);
+    border-radius: 8px;
+    padding: 1.5rem;
+    margin-bottom: 1.5rem;
+}
+
+h2 {
+    color: var(--color-primario-oscuro);
+    margin-top: 0;
+    border-bottom: 2px solid var(--color-borde);
+    padding-bottom: 0.5rem;
+}
+
+h3 {
+    color: var(--color-primario);
+    margin-bottom: 0.5rem;
+}
+
+p {
+    color: var(--color-texto);
+}
+
+article p em {
+    color: var(--color-texto-suave);
+    font-style: normal;
+    font-size: 0.95rem;
+}
+
+ul,
+ol {
+    padding-left: 1.3rem;
+}
+
+li {
+    margin-bottom: 0.5rem;
+}
+
+/* --- Tabla de educación --- */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 1rem;
+}
+
+caption {
+    text-align: left;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    color: var(--color-texto-suave);
+}
+
+th,
+td {
+    border: 1px solid var(--color-borde);
+    padding: 0.6rem 0.7rem;
+    text-align: left;
+    font-size: 0.95rem;
+}
+
+th {
+    background-color: var(--color-primario);
+    color: #ffffff;
+}
+
+tbody tr:nth-child(even) {
+    background-color: #f0f3f8;
+}
+
+/* --- Enlaces --- */
+a {
+    color: var(--color-primario);
+}
+
+a:hover,
+a:focus {
+    color: var(--color-primario-oscuro);
+}
+
+/* --- Redes --- */
+#redes ul {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    gap: 1rem;
+}
+
+#redes a {
+    display: inline-block;
+    padding: 0.5rem 1rem;
+    border: 1px solid var(--color-primario);
+    border-radius: 6px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+#redes a:hover,
+#redes a:focus {
+    background-color: var(--color-primario);
+    color: #ffffff;
+}
+
+/* --- Pie de página --- */
+footer {
+    text-align: center;
+    padding: 1.2rem;
+    color: var(--color-texto-suave);
+    font-size: 0.85rem;
+    border-top: 1px solid var(--color-borde);
+}
+
+/* --- Imágenes --- */
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+/* --- Responsivo --- */
+@media (max-width: 600px) {
+    header h1 {
+        font-size: 1.5rem;
+    }
+
+    nav ul {
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+
+    main {
+        padding: 1.2rem 1rem 2rem;
+    }
+}
